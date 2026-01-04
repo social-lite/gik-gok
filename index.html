@@ -4,134 +4,37 @@
   <meta charset="UTF-8">
   <title>GIK GOK</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #000;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 60px;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      z-index: 10;
-      border-bottom: 1px solid #222;
-    }
-
-    .feed {
-      position: absolute;
-      top: 60px;
-      bottom: 0;
-      width: 100%;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-    }
-
-    .video {
-      height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      border-bottom: 1px solid #111;
-    }
-
-    .video:nth-child(odd) {
-      background: #000;
-    }
-
-    .video:nth-child(even) {
-      background: #111;
-    }
-
-    .actions {
-      position: absolute;
-      right: 15px;
-      bottom: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 20px;
-    }
-
-    .btn {
-      cursor: pointer;
-      text-align: center;
-      user-select: none;
-    }
-
-    .btn span {
-      display: block;
-      font-size: 14px;
-      margin-top: 4px;
-      color: #aaa;
-    }
-
-    .liked {
-      color: #00ff6a;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>GIK GOK</header>
-
-<div class="feed">
-  <div class="video">
-    Video 1
-    <div class="actions">
-      <div class="btn" onclick="toggleLike(this)">
-        👍
-        <span>1.2K</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="video">
-    Video 2
-    <div class="actions">
-      <div class="btn" onclick="toggleLike(this)">
-        👍
-        <span>980</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="video">
-    Video 3
-    <div class="actions">
-      <div class="btn" onclick="toggleLike(this)">
-        👍
-        <span>2.1K</span>
-      </div>
-    </div>
-  </div>
+<!-- LOGIN -->
+<div id="login">
+  <h1>GIK GOK</h1>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
 </div>
 
-<script>
-  function toggleLike(btn) {
-    btn.classList.toggle("liked");
-  }
-</script>
+<!-- APP -->
+<div id="app" class="hidden">
 
+  <div class="video">
+    <video src="https://www.w3schools.com/html/mov_bbb.mp4" loop></video>
+    <div class="actions">
+      <button onclick="like(this)">❤️ <span>0</span></button>
+    </div>
+  </div>
+
+  <div class="video">
+    <video src="https://www.w3schools.com/html/movie.mp4" loop></video>
+    <div class="actions">
+      <button onclick="like(this)">❤️ <span>0</span></button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
-
